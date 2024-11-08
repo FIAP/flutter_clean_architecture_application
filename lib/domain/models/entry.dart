@@ -1,7 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'package:floor/floor.dart';
+
+@entity
 class Entry {
+  @primaryKey
   int id;
   String name;
   String image;
@@ -35,7 +39,7 @@ class Entry {
       name: map['name'] as String,
       image: map['image'] as String,
       description: map['description'] as String,
-      commonLocations: map['commonLocations'] as String,
+      commonLocations: jsonEncode(map['common_locations'] ?? ['Sem localização']), // map['commonLocations'] as String,
       category: map['category'] as String,
     );
   }
