@@ -1,9 +1,9 @@
 const String imagePath = "assets/images/";
 
 const Map<String, String> categories = {
-  'technology': 'Tecnologia',
-  'science': 'Ciência',
-  'sports': 'Esportes',
-  'health': 'Saúde',
-  'business': 'Negócios',
+  'creatures': 'Creatures',
+  'equipment': 'Ciência',
+  'materials': 'Esportes',
+  'monsters': 'Saúde',
+  'treasure': 'Negócios',
 };

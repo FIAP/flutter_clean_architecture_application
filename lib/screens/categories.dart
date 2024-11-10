@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_clean_architecture_application/screens/components/category.dart';
 import 'package:flutter_clean_architecture_application/utils/const/categories.dart';
 
 class Categories extends StatelessWidget {
@@ -29,7 +30,7 @@ class Categories extends StatelessWidget {
                     mainAxisExtent: 200,
                   ),
                   children: 
-                    categories.keys.map((e) => Text("Category: ${categories[e]}")).toList(),
+                    categories.keys.map((e) => Category(category: e)).toList(),
                   ),
             )));
   }
