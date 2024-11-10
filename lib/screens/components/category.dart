@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_clean_architecture_application/screens/results.dart';
 import 'package:flutter_clean_architecture_application/utils/const/categories.dart';
 
 class Category extends StatelessWidget {
@@ -13,7 +14,12 @@ class Category extends StatelessWidget {
         Flexible(
           child: InkWell(
             onTap: () {
-              // Navigate to the category screen
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:(context) => Results(category: category),
+                ),
+              );
             },
             child: Ink(
               child: Center(
