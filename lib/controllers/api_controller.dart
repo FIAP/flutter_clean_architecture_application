@@ -3,10 +3,10 @@ import 'package:flutter_clean_architecture_application/domain/business/api_workf
 import 'package:flutter_clean_architecture_application/domain/models/entry.dart';
 
 class ApiController implements ApiWorkflow {
-  final DataApi dataApi = DataApi();    
+  final DataApi dataApi = DataApi();
 
   @override
-  Future<List<Entry>> getEntriesByCategory(String category) {
+  Future<List<Entry>> getEntriesByCategory({required String category}) {
     return dataApi.getEntriesByCategory(category: category);
   }
 }

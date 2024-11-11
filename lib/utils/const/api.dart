@@ -1,1 +1,1 @@
-const String url = "https://botw-compendium.herokuapp.com/api/v3/compendium/category/";
+const String url = "https://fakestoreapi.com/products/category/";

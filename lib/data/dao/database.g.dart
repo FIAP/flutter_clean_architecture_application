@@ -96,7 +96,7 @@ class _$AppDatabase extends AppDatabase {
       },
       onCreate: (database, version) async {
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `Entry` (`id` INTEGER NOT NULL, `name` TEXT NOT NULL, `image` TEXT NOT NULL, `description` TEXT NOT NULL, `commonLocations` TEXT NOT NULL, `category` TEXT NOT NULL, PRIMARY KEY (`id`))');
+            'CREATE TABLE IF NOT EXISTS `Entry` (`id` INTEGER NOT NULL, `title` TEXT, `image` TEXT, `description` TEXT, PRIMARY KEY (`id`))');
 
         await callback?.onCreate?.call(database, version);
       },
@@ -120,11 +120,9 @@ class _$EntryDao extends EntryDao {
             'Entry',
             (Entry item) => <String, Object?>{
                   'id': item.id,
-                  'name': item.name,
+                  'title': item.title,
                   'image': item.image,
-                  'description': item.description,
-                  'commonLocations': item.commonLocations,
-                  'category': item.category
+                  'description': item.description
                 }),
         _entryDeletionAdapter = DeletionAdapter(
             database,
@@ -132,11 +130,9 @@ class _$EntryDao extends EntryDao {
             ['id'],
             (Entry item) => <String, Object?>{
                   'id': item.id,
-                  'name': item.name,
+                  'title': item.title,
                   'image': item.image,
-                  'description': item.description,
-                  'commonLocations': item.commonLocations,
-                  'category': item.category
+                  'description': item.description
                 });
 
   final sqflite.DatabaseExecutor database;
@@ -154,11 +150,9 @@ class _$EntryDao extends EntryDao {
     return _queryAdapter.queryList('SELECT * FROM ENTRY',
         mapper: (Map<String, Object?> row) => Entry(
             id: row['id'] as int,
-            name: row['name'] as String,
-            image: row['image'] as String,
-            description: row['description'] as String,
-            commonLocations: row['commonLocations'] as String,
-            category: row['category'] as String));
+            title: row['title'] as String?,
+            image: row['image'] as String?,
+            description: row['description'] as String?));
   }
 
   @override
