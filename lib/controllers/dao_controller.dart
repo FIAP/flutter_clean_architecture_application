@@ -12,7 +12,7 @@ class DaoController implements DaoWorkflow {
   }
 
   @override
-  Future<void> deleteEntry(Entry entry) async {
+  Future<void> deleteEntry({required Entry entry}) async {
     final EntryDao entryDao = await createDatabase();
     entryDao.deleteEntry(entry);
   }
@@ -24,7 +24,7 @@ class DaoController implements DaoWorkflow {
   }
 
   @override
-  Future<void> saveEntry(Entry entry) async {
+  Future<void> saveEntry({required Entry entry}) async {
     final EntryDao entryDao = await createDatabase();
     entryDao.saveEntry(entry);
   }
