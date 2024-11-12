@@ -26,7 +26,7 @@ class Favorites extends StatelessWidget {
                   return ListView.builder(
                     itemBuilder: (context, index) => EntryCard(
                       entry: snapshot.data![index],
-                      isSaved: false,
+                      isSaved: true,
                     ),
                     itemCount: snapshot.data!.length,
                   );
